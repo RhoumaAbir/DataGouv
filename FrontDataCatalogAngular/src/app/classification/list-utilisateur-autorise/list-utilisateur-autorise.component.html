@@ -1,0 +1,52 @@
+
+<p>list-UtilisateurAutorises</p>
+<li class="nav-item">
+  
+    <button class="btn btn-info" (click)="openAddUtilisateurAutoriseDialog()">Ajouter UtilisateurAutorise</button>
+
+    <h2>UtilisateurAutorise-list </h2>
+    <div class="row">
+       
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>UtilisateurAutorise table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+<thead>
+    <tr >
+        
+        <th>matriculeUtilisateurAutorise</th>
+       
+        <th>fonctionUtilisateurAutorise</th>
+        <th>categorieUtilisateurAutorise</th>
+        <th>Action</th>
+
+    </tr>
+
+</thead>
+<tbody>
+    
+    <tr *ngFor="let utilisateurAutorise of utilisateurAutorises">
+   
+    <td>{{utilisateurAutorise.matriculeUtilisateurAutorise}}</td>
+    <td>{{utilisateurAutorise.fonctionUtilisateurAutorise}}</td>
+    <td>{{utilisateurAutorise.categorieUtilisateurAutorise}}</td>
+   
+
+    
+    <td>
+        <button (click)="update_utilisateurAutorise(utilisateurAutorise.idUtilisateurAutorise)" class="btn btn-info">Update</button>
+        <button (click)=" delete_utilisateurAutorise(utilisateurAutorise.idUtilisateurAutorise)"class="btn btn-info">Delete</button>
+       
+    </td>
+</tr>
+
+
+</tbody>
+
+
+
+
+</table>

@@ -1,0 +1,63 @@
+<div id="open-position" class="section py-1 py-md-bg-light-dark">
+    <div class="container">
+      <!-- section header -->
+      <header class="text-left mx-auto mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="h3 fw-bold"><span class="fw-light"></span> DataUser List</h2>
+          <div col-md-1 text-left>
+            <a class="btn btn-primary btn-sm" routerLink="/add-dataUser">
+              <i class="bi bi-plus"></i> Add dataUser
+            </a>
+          </div>
+        </div>
+        <hr class="my-4 mx-auto bg-warning border-warning">
+      </header>
+     
+        
+      <div class="row justify-content-center">
+        <div class="col-20">
+          <div class="head-schedule bg-primary shadow-md text-light">
+            <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+              <div class="col-md-5">
+                <strong>Matricule Utilisateur</strong>
+              </div>
+              <div class="col-md-5">
+                <strong>Fonction</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Options</strong>
+              </div>
+            </div>
+          </div>
+          <div class="schedule bg-body shadow-md mb-5">
+            <ng-container *ngFor="let utilDonne of utilDonnes">
+              <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+                <div class="col-md-5">
+                  {{ utilDonne.matriculeUtilisateur }}
+                </div>
+                <div class="col-md-5">
+                  {{ utilDonne.fonction }}
+                </div>
+                <div class="col-md-2">
+                  <!-- Options can be added here -->
+                  <span class="me-2">
+                    <a [routerLink]="'/edit-dataUser/' + utilDonne.idUtilDonne" title="Edit Item">
+                      <i class="bi bi-pencil"></i>
+                    </a>
+                  </span >
+                  <span>
+                    <a (click)="deleteDataUser(utilDonne.idUtilDonne)"  >
+                      <i class="bi bi-trash text-danger"></i>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End open position -->
+  

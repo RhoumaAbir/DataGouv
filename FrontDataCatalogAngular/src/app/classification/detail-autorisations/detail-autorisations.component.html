@@ -1,0 +1,21 @@
+<p>detail-autorisations works!</p>
+
+<div class="card" *ngFor="let autorisation of autorisations">
+  <h3 class="card-header"><tr> Autorisation: {{ autorisation.idAutorisation }}  Type:  {{ autorisation.typePrivilege }}</h3>
+   
+      <h3 class="card-header">  Type:  {{ autorisation.typePrivilege }}</h3>
+      <h3 class="card-header">  dateExpiration:  {{ autorisation.dateExpiration }}</h3>
+  <button class="btn btn-info" (click)="desaffecterClassification(autorisation.idAutorisation)">desaffecter Autorisation</button>
+
+  <div class="card-body">
+    <button class="btn btn-info" (click)="UtilisateurAutoriseNullDialog(autorisation.idAutorisation)">affecter utilisateur</button>
+    <button class="btn btn-info" (click)="UtilisateursAutorisesParAutorisation(autorisation.idAutorisation)">Voir Utilisateurs Autorisés</button>
+    <div *ngFor="let utilisateur of utilisateursAutorises">
+      <h3 class="card-header">  matriculeUtilisateurAutorise:  {{ utilisateur.matriculeUtilisateurAutorise }}</h3>
+      <h3 class="card-header">  fonctionUtilisateurAutorise:  {{ utilisateur.fonctionUtilisateurAutorise }}</h3>
+      <button class="btn btn-info" (click)="desaffecterutilisateur(utilisateur.idUtilisateurAutorise)">desaffecter </button>
+      
+    </div>
+  </div>
+</div>
+<button class="btn btn-info" (click)="AutorisationClassificationNullDialog(classificationId)">affecter Autorisation</button>

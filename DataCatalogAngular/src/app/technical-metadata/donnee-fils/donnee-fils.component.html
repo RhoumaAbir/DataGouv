@@ -1,0 +1,39 @@
+
+<div class="row">
+    
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                
+              </div>
+<div class="comments-container">
+    <h1>Liste des donnees Parents</h1>
+
+    <ul id="comments-list" class="comments-list" *ngFor = "let donneeFils of donneeFilss">
+        <li>
+            <div class="comment-main-level">
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="https://cdn.oshara.ca/wpsite/2023/07/27115137/METADONNEES-compressed.jpg" alt=""></div>
+                <!-- Contenedor del Comentario -->
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h6 class="comment-name by-author"><a href="http://creaticode.com/blog"><span class="text-dark ms-sm-2 font-weight-bold">NomTechniqueParent :</span>{{ donneeFils.nomTechniqueParent }}</a></h6>
+                     
+                    </div>
+                    <div class="comment-content">
+                        <span class="mb-2 text-xs">typeDonnee: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeFils.typeDonnee }}</span></span>
+                       <br>
+                  
+                  
+                        <br>
+                        <span class="text-xs " style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{  donneeFils ? 'affecté' : 'N/A'}}</span></span>
+                    </div>
+                </div>
+            </div>
+         
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</div>

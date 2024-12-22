@@ -1,0 +1,46 @@
+<p>utilisateur-non-affecter works!</p>
+
+
+<li class="nav-item">
+    <button class=" btn btn-info" routerLink="/DashboardAdmin/create-utilisateurAutorise" routerLinkActive="active">Ajouter une utilisateurAutorise</button>
+    
+
+<table class="table">
+<thead>
+    <tr >
+        <th>idUtilisateurAutorise</th>
+        <th>matriculeUtilisateurAutorise</th>
+       
+        <th>fonctionUtilisateurAutorise</th>
+        <th>categorieUtilisateurAutorise</th>
+        <th>Action</th>
+
+    </tr>
+
+</thead>
+<tbody>
+    
+    <tr *ngFor="let utilisateurAutorise of utilisateurAutorises">
+        <td>{{utilisateurAutorise.idUtilisateurAutorise}}</td>
+    <td>{{utilisateurAutorise.matriculeUtilisateurAutorise}}</td>
+    <td>{{utilisateurAutorise.fonctionUtilisateurAutorise}}</td>
+    <td>{{utilisateurAutorise.categorieUtilisateurAutorise}}</td>
+   
+
+    <td>
+        <button (click)="affecterUtilisateurToAutorisation(utilisateurAutorise.idUtilisateurAutorise)" class="btn btn-info">affecter</button>
+    
+       
+    </td>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-success" type="submit" style="text-align: left;" (click)="closeDialog()">Fermer</button>
+    
+</tr>
+
+
+</tbody>
+
+
+
+
+</table>
+

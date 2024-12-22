@@ -1,0 +1,62 @@
+
+<p>list-autorisation works!</p>
+
+<li class="nav-item">
+
+    
+    <button class="btn btn-info" (click)="openAddAutorisationDialog()">Ajouter une autorisation</button>
+
+   
+   
+
+  
+    <h2>Autorisation-list </h2>
+    <div class="row">
+       
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Autorisation table</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+   
+<thead>
+    <tr >
+        
+        <th>dateAutorisation</th>
+        <th>dateExpiration</th>
+        <th>typePrivilege</th>
+      
+        <th>Action</th>
+
+    </tr>
+    
+
+</thead>
+<tbody>
+    
+    <tr *ngFor="let autorisation of autorisations">
+ 
+    <td>{{autorisation.dateAutorisation}}</td>
+    <td>{{autorisation.dateExpiration}}</td>
+    <td>{{autorisation.typePrivilege}}</td>
+    
+  
+    <td> 
+        <button (click)="update_autorisation(autorisation.idAutorisation)" class="btn btn-info">  update  </button>
+     
+        <button (click)="delete_autorisation(autorisation.idAutorisation)" class="btn btn-info">Delete</button>
+    </td>
+</tr>
+
+</tbody>
+
+
+
+
+
+
+
+
+</table>

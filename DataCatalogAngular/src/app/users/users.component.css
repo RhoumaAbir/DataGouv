@@ -1,0 +1,32 @@
+.conteneur {
+    display: flex;
+    flex-direction: column;
+    /* Pour centrer verticalement */
+    align-items: center;
+    /* Centrage vertical */
+    justify-content: center;
+    /* Centrage horizontal */
+}
+
+.conteneur {
+    width: 100%;
+    /* Largeur obligatoire pour être centré */
+    text-align: center;
+    /* Centrage horizontal */
+}
+
+.a {
+    margin-top: 10px;
+    margin-left: 10px;
+    /* Ajoutez l'espace souhaité en haut */
+    height: auto;
+}
+
+.background {
+    background-image: url("src/assets/images/background_photo.jpg");
+    background-size: auto;
+    /* Ajuste la taille de l'image pour couvrir toute la zone */
+    background-position: center;
+
+    /* Centre l'image horizontalement et verticalement */
+}

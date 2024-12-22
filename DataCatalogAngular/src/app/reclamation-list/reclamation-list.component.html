@@ -1,0 +1,37 @@
+<h2>reclamation-list </h2>
+<table class="table">
+<thead>
+    <tr >
+        <th>nom_Acteur</th>
+        <th>cin_Acteur</th>
+        <th>message_Reclamation</th>
+        <th>date_Reclamation</th>
+        <th>typeReclamation</th>
+        <th>Action</th>
+
+    </tr>
+
+</thead>
+<tbody>
+    <tr *ngFor="let reclamation of reclamations">
+    <td>{{reclamation.nom_Acteur}}</td>
+    <td>{{reclamation.cin_Acteur}}</td>
+    <td>{{reclamation.message_Reclamation}}</td>
+    <td>{{reclamation.date_Reclamation}}</td>
+    <td>{{reclamation.typeReclamation}}</td>
+    <td>
+        <button (click)="update_reclamation(reclamation.id_Reclamation)" class="btn btn-info">Update</button>
+        <button (click)="delete_reclamation(reclamation.id_Reclamation)" class="btn btn-info">Delete</button>
+    </td>
+</tr>
+
+</tbody>
+
+
+
+
+</table>
+<h2>Reclamation List</h2>
+<div class="card-container">
+  <app-reclamation-card *ngFor="let reclamation of reclamations" [reclamation]="reclamation"></app-reclamation-card>
+</div>

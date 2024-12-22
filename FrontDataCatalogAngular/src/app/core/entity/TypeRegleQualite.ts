@@ -1,0 +1,3 @@
+export enum TypeRegleQualite{
+  NONVIDE="NONVIDE" ,NONNULLE="NONNULLE" ,POSITIVE="POSITIVE" ,CRYPTE="CRYPTE"
+}

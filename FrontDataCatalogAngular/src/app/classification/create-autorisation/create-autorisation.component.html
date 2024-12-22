@@ -1,0 +1,60 @@
+<p>create-autorisation works!</p>
+
+<form  (ngSubmit)="onSubmit( )" >
+    <div class="form-group">
+        <label>idAutorisation</label>
+        <input type="text" class="form-control" placeholder="idAutorisation" id="idAutorisation" 
+        [(ngModel)]="autorisation.idAutorisation" name="idAutorisation">
+    </div>
+    <div class="form-group">
+        <label>dateAutorisation</label>
+        <input type="datetime-local" class="form-control" placeholder="dateAutorisation" id="dateAutorisation" 
+        [(ngModel)]="autorisation.dateAutorisation" name="dateAutorisation">
+    </div>
+    <div class="form-group">
+        <label>dateExpiration</label>
+        <input type="datetime-local" class="form-control" placeholder="dateExpiration" id="dateExpiration" 
+        [(ngModel)]="autorisation.dateExpiration" name="dateExpiration">
+    </div>
+    <div class="form-group">
+        <label for="typePrivilege">Type de privilège</label>
+        <select class="form-control" id="typePrivilege" [(ngModel)]="autorisation.typePrivilege" name="typePrivilege">
+            <option value="CONSULTATION">CONSULTATION</option>
+            <option value="MODIFICATION">MODIFICATION</option>
+            <option value="SUPPRESSION">SUPPRESSION</option>
+            <!-- Ajoutez d'autres options au besoin -->
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="classificationrows">Classification</label>
+        <input type="checkbox" id="creationCheckbox" [(ngModel)]="creationEnabled" name="creationCheckbox" (change)="ClassificationValue()"> Activer la création
+        <select class="form-control" id="classification"  [(ngModel)]="autorisation.classification" name="classification" [disabled]="!creationEnabled">
+            <option *ngFor="let cl of classifications" [value]="cl.idClassification">{{ cl.descriptionClassification }}</option>
+            <!-- Ajoutez d'autres options au besoin -->
+        </select>
+    </div>
+    
+    
+    
+    
+   
+    
+ 
+   
+      
+          
+   
+    
+  
+    
+   
+    <button class="btn btn-success" type="submit">submit</button><!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<button class="btn btn-success" type="submit" style="text-align: left;" (click)="closeDialog()">Fermer</button>
+    
+    -->
+ 
+    
+   
+   
+
+</form>

@@ -1,0 +1,50 @@
+
+<p>list-autorisation works!</p>
+
+<li class="nav-item">
+    
+
+   
+   
+
+  
+
+
+<table class="table">
+   
+<thead>
+    <tr >
+        <th>idAutorisation</th>
+        <th>dateAutorisation</th>
+        <th>dateExpiration</th>
+        <th>typePrivilege</th>
+      
+        <th>Action</th>
+
+    </tr>
+    
+
+</thead>
+<tbody>
+    
+    <tr *ngFor="let autorisation of autorisations">
+    <td>{{autorisation.idAutorisation}}</td>
+    <td>{{autorisation.dateAutorisation}}</td>
+    <td>{{autorisation.dateExpiration}}</td>
+    <td>{{autorisation.typePrivilege}}</td>
+    <td>  <button (click)="affecterAutorisationToClassification(autorisation.idAutorisation)" class="btn btn-info">  affecter  </button></td>
+    
+  
+    
+</tr>
+
+</tbody>
+
+
+
+
+
+
+
+
+</table>

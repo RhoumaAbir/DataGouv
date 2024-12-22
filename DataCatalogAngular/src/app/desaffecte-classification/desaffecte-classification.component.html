@@ -1,0 +1,45 @@
+<p>desaffecte-classification works!</p>
+
+<table class="table">
+    <thead>
+        <tr >
+            <th>idDonneeParent</th>
+            <th>NomTechniqueParent</th>
+            <th>nbrLigne</th>
+            <th>typeDonnee</th>
+            <th>commentaire</th>
+            
+            <th>Action</th>
+    
+        </tr>
+    
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let don of DonneeParents">
+            <td>{{don.idDonneeParent}}</td>
+            <td>{{don.nomTechniqueParent}}</td>
+            <td>{{don.nbrLigne}}</td>
+            <td>{{don.typeDonnee}}</td>
+            <td>{{don.commentaire}}</td>
+     <td>  
+        
+  
+   <button class="btn btn-info" (click)="desaffecterClassification(don.idDonneeParent )">desaffecter </button>
+
+</td>
+ 
+ 
+ </tbody>
+ 
+ 
+  
+ 
+ </table>
+ 
+         
+              
+                   
+               
+          
+            

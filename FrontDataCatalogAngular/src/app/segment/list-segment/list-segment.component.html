@@ -1,0 +1,70 @@
+<div id="open-position" class="section py-1 py-md-bg-light-dark">
+    <div class="container">
+      <!-- section header -->
+      <header class="text-left mx-auto mb-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="h3 fw-bold"><span class="fw-light"></span> Segment List</h2>
+          <div col-md-1 text-left>
+            <a class="btn btn-primary btn-sm" routerLink="/add-segment">
+              <i class="bi bi-plus"></i> Add Segment
+            </a>
+          </div>
+        </div>
+        <hr class="my-4 mx-auto bg-warning border-warning">
+      </header>
+  
+      <div class="row justify-content-center">
+        <div class="col-20">
+          <div class="head-schedule bg-primary shadow-md text-light">
+            <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+              <div class="col-md-2">
+                <strong>Ordre Segment</strong>
+              </div>
+              <div class="col-md-3">
+                <strong>Label Donne</strong>
+              </div>
+              <div class="col-md-3">
+                <strong>Matricule Utilisateur</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Operation</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Options</strong>
+              </div>
+            </div>
+  
+            <!-- Use *ngFor to iterate over segments and display each row -->
+            <div class="row g-0 align-items-center text-center text-md-start p-4 text-dark " *ngFor="let segment of segments" style="background-color: white">
+              <div class="col-md-2">
+                {{ segment.ordreSegment }}
+              </div>
+              <div class="col-md-3">
+                {{ segment.labelDonne }}
+              </div>
+              <div class="col-md-3">
+                {{ segment.matriculeUtilisateur }}
+              </div>
+              <div class="col-md-2">
+                {{ segment.operation }}
+              </div>
+              <div class="col-md-2">
+                <!-- Options can be added here -->
+                <span class="me-2">
+                  <a [routerLink]="'/edit-segment/' + segment.idSegment" title="Edit Item">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                </span>
+                <span>
+                  <a (click)="deleteSegment(segment.idSegment)">
+                    <i class="bi bi-trash text-danger"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

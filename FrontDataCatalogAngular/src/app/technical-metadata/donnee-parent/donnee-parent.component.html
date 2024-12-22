@@ -1,0 +1,144 @@
+
+
+
+<header class="text-left mx-auto mb-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="h3 fw-bold" style="color: rgb(81, 59, 244);"><span class="fw-light"></span> Voir Toutes Les Donnees fils qui deja analyse </h2>
+    <div col-md-1 text-left>
+      <a class="btn btn-primary btn-sm" routerLink="donneeFils" routerLinkActive="active" data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+        <i class="bi bi-plus"></i>  Donnees fils
+      </a>
+    </div>
+  </div>
+  <hr class="my-4 mx-auto bg-warning border-warning">
+</header>
+
+
+<div id="block-two" class="section py-6 py-md-7 bg-body border-top">
+  <div class="container">
+    
+    <div id="icone1" class="box-icone bg-light">
+        <div class="name text-decoration-none text-center mb-4">
+          <h2 class="fw-bold mb-3">  ajouter donneees manuellement</h2>
+          </div>
+     
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="envoyer()"> 
+      <button type="button" class="btn btn-primary" (click)="addInput()">Add Input</button> 
+      <div id="input-container" class="mb-3">
+        <div *ngFor="let control of myForm.controls | keyvalue">
+          <label [for]="control.key" *ngIf="control.key !== 'idSource'">{{ control.key }}:</label>
+          <input *ngIf="control.key !== 'idSource'" [id]="control.key" [formControlName]="control.key" class="form-control">
+        </div>
+      </div>
+      <label for="exampleFormControlInput1" class="form-label">nom source</label>
+      <select id="alerteAudit" name="alerteAudit" class="form-control" formControlName="idSource" required>
+        <option value="" disabled selected>Choisissez une option</option>
+        <option *ngFor="let source of sources" [value]="source.idSource">{{ source.nomSource }}</option>
+      </select>
+      
+      <div class="mb-3">
+        <input type="submit" class="btn btn-primary" [disabled]="myForm.invalid">
+      </div>
+    </form>         
+    <div id="icone1" class="box-icone bg-light">
+      <div class="name text-decoration-none text-center mb-4">
+        <h2 class="fw-bold mb-3">  ajouter des donneees en forma  excel</h2>
+        </div>
+   
+  </div>
+    <form (ngSubmit)="onAjouter()" [formGroup]="excelForm" class="mt-4">
+    
+      <label for="excelFile" class="form-label">Fichier Excel (.xlsx)</label>
+      <input type="file" class="form-control" (change)="onFileChange($event)" accept=".xlsx" ngModel name="excelFile"  required>
+      <div *ngIf="excelForm.controls['excelFile'].invalid && excelForm.controls['excelFile'].touched" class="invalid-feedback">
+        <small class="text-danger">Veuillez sélectionner un fichier Excel (.xlsx).</small>
+      </div>
+      <label for="exampleFormControlInput1" class="form-label">nom source</label>
+      <select id="alerteAudit" name="alerteAudit" class="form-control" formControlName="idSource" required>
+        <option value="" disabled selected>Choisissez une option</option>
+        <option *ngFor="let source of sources" [value]="source.idSource">{{ source.nomSource }}</option>
+      </select>
+     
+      <button  class="btn btn-primary" type="submit" [disabled]="excelForm.invalid">Ajouter</button>
+    </form>
+
+
+   
+    <form (ngSubmit)="ajouterCsv()" [formGroup]="csvForm" class="mt-4" enctype="multipart/form-data">
+  
+      <label for="csvFile" class="form-label">Fichier CSV</label>
+      <input type="file" class="form-control" (change)="onFile($event)" accept=".csv" id="csvFile" name="csvFile" required>
+      <div *ngIf="csvForm.controls['csvFile'].invalid && csvForm.controls['csvFile'].touched" class="invalid-feedback">
+        <small class="text-danger">Veuillez sélectionner un fichier CSV.</small>
+      </div>
+    
+      <label for="nomSource" class="form-label">Nom de la source</label>
+      <select id="nomSource" name="nomSource" class="form-control" formControlName="idSource" required>
+        <option value="" disabled selected>Choisissez une option</option>
+        <option *ngFor="let source of sources" [value]="source.idSource">{{ source.nomSource }}</option>
+      </select>
+     
+      <button class="btn btn-primary" type="submit" [disabled]="csvForm.invalid">Ajouter</button>
+    </form>
+
+      
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text" data-aos="fade-right">
+              <div class="p-5 p-md-7">
+                <h2 class="fw-bold mb-3">liste donnees parent</h2>
+             
+              </div>
+            </div>
+            <div class="tab-content" id="tabs-content2">
+              <div class="tab-pane fade show active" id="twocontent-1" role="tabpanel" aria-labelledby="twonav-1">
+                <!-- showcase  -->
+                <div class="row">
+                
+            <div class="col-lg-6 order-lg-1">
+              <!-- processs vertical -->
+              <ol class="process-vertical ps-0" data-aos="flip-up">
+                <li class="process-vertical-item" *ngFor="let donneeParent of donneeParents | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <div class="process-vertical-icon">
+                    <div class="process-vertical-icon-bg me-auto rounded-circle p-2">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="2rem" height="2rem" viewBox="0 0 24 24">
+                          <path fill="currentColor" d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="process-vertical-content ms-lg-4">
+                    <h3 class="h5">Données Parents</h3>
+                  </div>
+                  <div class="process-vertical-content ms-lg-4">
+                    <span class="mb-2 text-xs">NomTechniqueParent: <span class="text-dark font-weight-bold ms-sm-2">{{ donneeParent.nomTechniqueParent }}</span></span><br>
+                    <span class="mb-2 text-xs">TypeDonnee: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.typeDonnee }}</span></span><br>
+                    <span class="text-xs">NbrLigne: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.nbrLigne }}</span></span><br>
+                    <span class="mb-2 text-xs">TailleEnOctets: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.tailleEnOctets }}</span></span><br>
+                    <span class="text-xs">NombreDonneeFils: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.nombreDonneeFils }}</span></span><br>
+                    <span class="text-xs" style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.sourceList ? 'affecté' : 'N/A'}}</span></span>
+                    <!-- Boutons Like et Dislike -->
+<div class="btn-group" role="group" aria-label="Actions">
+  <!-- Boutons Like et Dislike -->
+<div class="btn-group" role="group" aria-label="Actions">
+  <button type="button" class="btn btn-outline-primary" (click)="likeEvent(donneeParent)" [disabled]="donneeParent.liked > 0 || donneeParent.disliked > 0">
+      <!-- Utilisez l'emoji pouce levé pour "Like" -->
+      👍 Like
+  </button>
+  <button type="button" class="btn btn-outline-danger" (click)="dislikeEvent(donneeParent)" [disabled]="donneeParent.liked > 0 || donneeParent.disliked > 0">
+      <!-- Utilisez l'emoji pouce vers le bas pour "Dislike" -->
+      👎 Dislike
+  </button>
+</div>
+</div>
+                  </div>
+                </li>
+              </ol>
+              <!-- end processs vertical -->
+              <!-- Pagination -->
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              <!-- Fin de la pagination -->
+            </div>
+          </div></div>
+
+          

@@ -1,0 +1,147 @@
+
+<!--Skippy-->
+<a id="skippy" class="visually-hidden-focusable" href="#content">
+    <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+    </div>
+</a>
+
+<app-header-auditeur></app-header-auditeur>
+
+
+<!--Main start-->
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-12 pt-4 pt-lg-0 d-lg-none">
+            <!-- left nav -->
+
+
+        </div>
+
+        <!--left sidebar start-->
+        <div class="col-12 col-lg-3 col-xl-2" style="background-color: aliceblue; margin-right: auto; ">
+            <!-- 0000000000000000000000000000000000000 -->
+            <div class="sidebar">
+
+                <div class="menu_content">
+                    <ul class="menu_items">
+                        <div class="menu_title" style="width: max-content; color: #5b2be0">Espace auditeur</div>
+                        <!-- duplicate these li tag if you want to add or remove navlink only -->
+                        <!-- Start -->
+                        <li class="item">
+                            <a routerLink="/home_auditeur/mes_audits" class="nav_link" style="width: 230px;">
+                                <span class="navlink_icon">
+                                    <i class="bx bxs-magic-wand"></i>
+                                </span>
+                                <span class="navlink">Mes audits</span>
+                            </a>
+                        </li>
+                        <!-- End -->
+                        <!-- Start -->
+                        <li class="item">
+                            <a routerLink="/home_auditeur/les_classifications" class="nav_link" style="width: 230px;">
+                                <span class="navlink_icon">
+                                    <i class="bx bxs-magic-wand"></i>
+                                </span>
+                                <span class="navlink">Les classifications</span>
+                            </a>
+                        </li>
+                        <!-- End -->
+                        <!-- Start -->
+                        <li class="item">
+                            <a routerLink="/home_auditeur/les_models" class="nav_link" style="width: 230px;">
+                                <span class="navlink_icon">
+                                    <i class="bx bxs-magic-wand"></i>
+                                </span>
+                                <span class="navlink">Les modèles</span>
+                            </a>
+                        </li>
+                        <!-- End -->
+
+                        <!-- Start -->
+                        <li class="item">
+                            <a routerLink="/home_auditeur/les_entreprises" class="nav_link" style="width: 230px;">
+                                <span class="navlink_icon">
+                                    <i class="bx bxs-magic-wand"></i>
+                                </span>
+                                <span class="navlink">Les entreprises</span>
+                            </a>
+                        </li>
+                        <!-- End -->
+
+                    </ul>
+                </div>
+            </div>
+            <!-- 0000000000000000000000000000000000000 -->
+        </div>
+        <!--Left sidebar end-->
+
+
+        <!--Right sidebar start-->
+        <div class="d-none d-xl-block col-xl-2 bn-toc" style="background-color:aliceblue;">
+            <!-- sidebar -->
+            <div class="col-lg-4 ps-lg-5">
+                <aside class="widget-area sticky mt-5 mt-lg-0">
+                    <!-- widget -->
+                    <aside id="archives" class="widget mb-4" style="padding-top: 70px; color:#5b2be0;">
+                        <div class="widget-title">
+                            <h4 class="h5"><span>Explorez</span></h4>
+                        </div>
+
+                        <div class="side-links">
+                            <a class="py-2 d-flex justify-content-between align-items-center"
+                                style="width: 230px; margin-top: 5px;" routerLink="/home_decideur">
+                                Fonctionnalité 1
+                            </a>
+
+                            <a class="py-2 d-flex justify-content-between align-items-center"
+                                style="width: 230px;  margin-top: 5px;" routerLink="/home_decideur">
+                                Fonctionnalité 2
+                            </a>
+                            <a class="py-2 d-flex justify-content-between align-items-center"
+                                style="width: 230px;  margin-top: 5px;" routerLink="/home_decideur">
+                                Fonctionnalité 3
+                            </a>
+                            <a class="py-2 d-flex justify-content-between align-items-center"
+                                style="width: 230px;  margin-top: 5px;" routerLink="/home_decideur">
+                                Fonctionnalité 4
+                            </a>
+                        </div>
+                    </aside><!-- end widget -->
+                </aside>
+            </div><!-- end sidebar -->
+        </div>
+        <!--Right sidebar end-->
+
+
+        <!--Content start-->
+        <main class="col-12 col-lg-9 col-xl-8 px-md-3 ps-lg-5 pe-lg-4 bn-content pb-5" style="margin-top: 5px;">
+            <div id="css" class="jump">
+
+                <router-outlet></router-outlet>
+
+            </div>
+
+
+        </main>
+        <!--Content end-->
+    </div>
+</div>
+<!--Main end-->
+
+
+<app-footer-auditeur></app-footer-auditeur>
+
+
+<!-- =========={ SCROLL TO TOP }==========  -->
+<a href="#page-top" class="p-3 border position-fixed end-1 bottom-1 z-index-10 back-top" title="Scroll To Top">
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <svg class="bi bi-arrow-up" width="1rem" height="1rem" viewBox="0 0 16 16" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd">
+        </path>
+        <path fill-rule="evenodd"
+            d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z"
+            clip-rule="evenodd"></path>
+    </svg>
+</a>

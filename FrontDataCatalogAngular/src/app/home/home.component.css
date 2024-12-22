@@ -1,0 +1,57 @@
+/* Style de base pour la navbar */
+.navbar {
+    background-color: #333;
+    /* Couleur de fond de la navbar */
+}
+
+/* Style de base pour les éléments de la navbar */
+.navbar a {
+    color: white;
+    /* Couleur du texte de base (blanc) */
+    text-decoration: none;
+    /* Supprimer les soulignements par défaut */
+    padding: 10px;
+    /* Espacement autour du texte */
+}
+
+/* Style lorsque l'utilisateur survole un élément de la navbar */
+.navbar a:hover {
+    color: #ffcc43;
+    /* Couleur de fond jaune au survol */
+}
+
+/* Style lorsque l'utilisateur clique sur un élément de la navbar */
+.navbar a.active {
+    color: #ffcc43;
+    /* Couleur de fond jaune lors du clic */
+}
+
+/* Style de base pour le bouton */
+.buttonA {
+    background-color: #D4AF37;
+    /* Couleur moutarde */
+    color: white;
+    /* Couleur du texte */
+    padding: 10px 20px;
+    /* Espacement à l'intérieur du bouton */
+    border: none;
+    /* Supprimer la bordure */
+    border-radius: 10px;
+    /* Arrondir les coins */
+    cursor: pointer;
+    /* Curseur de souris en forme de main */
+    font-size: 16px;
+    /* Taille de la police */
+
+
+}
+
+/* Style lorsque l'utilisateur survole le bouton */
+.buttonA:hover {
+    background-color: #B8860B;
+    /* Couleur moutarde foncée */
+    /* Couleur moutarde */
+    color: white;
+    font-size: 16px;
+    /* Taille de la police */
+}

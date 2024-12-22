@@ -1,0 +1,69 @@
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+<h6>List de collection</h6>
+    </div>
+    <div class="card-body px-0 pt-0 pb-2">
+        <div class="table-responsive p-0">
+<table class="table align-items-center mb-0">
+<thead>
+<tr>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id </th>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> nom </th>
+<th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7"> affecter</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor = "let collection of collections" >
+<td> {{ collection.idCollection }} </td>
+<td> {{ collection.nomCollection }} </td>
+<td>{{ collection.organisation ? collection.organisation.idOrganisation : 'N/A' }}</td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+<div class="card-body pt-4 p-3">
+             
+
+
+
+    <div class="row">
+        <div class="col-md-7 mt-4">
+          <div class="card">
+            <div class="card-header pb-0 px-3">
+              <h6 class="mb-0">Liste des Sources</h6>
+            </div>
+    <ul class="list-group"  *ngFor = "let source of sources" >
+        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+          <div class="d-flex flex-column">
+           
+            <span class="mb-2 text-xs">Nom Source: <span class="text-dark font-weight-bold ms-sm-2">{{ source.nomSource }}</span></span>
+            <span class="mb-2 text-xs">fournisseur: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.fournisseurSource }}</span></span>
+            <span class="text-xs">commmentaire: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.commmentaireSource }}</span></span>
+            <span class="mb-2 text-xs">path: <span class="text-dark font-weight-bold ms-sm-2">{{ source.path }}</span></span>
+            <span class="mb-2 text-xs">user Name: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.userName }}</span></span>
+            <span class="text-xs">mot De Pasee: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.motDePasee }}</span></span>
+            <span class="text-xs " style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{  source.collection ?  source.collection.idCollection : 'N/A'}}</span></span>
+
+        </div>
+     
+        </li>
+        
+      </ul>
+
+</div>      </div>
+</div>
+</div>

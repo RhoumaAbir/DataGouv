@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <div class="container">
+        
+      <a class="navbar-brand" href="#">Première application</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/DashboardAdmin/create-classification" routerLinkActive="active">Ajouter une classification</a>
+         
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/DashboardAdmin/classifications" routerLinkActive="active">afficher list classifications</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/DashboardAdmin/autorisations" routerLinkActive="active">afficher list autorisations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/DashboardAdmin/utilisateurAutorises" routerLinkActive="active">afficher list utilisateurAutorises</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

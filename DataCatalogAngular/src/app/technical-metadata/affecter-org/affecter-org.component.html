@@ -1,0 +1,17 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Affectation  collection par organisation </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> id collection</label>
+            <input type="number" class ="form-control" id = "idCollection"
+                [(ngModel)] = "collection.idCollection" name = "idCollection">
+                <input type="number" class ="form-control" id = "idOrganisation"
+                [(ngModel)] = "collection.organisation.idOrganisation" name = "idOrganisation">
+        </div>
+    
+        
+        <button class = "btn btn-success" type ="submit">affecter</button>
+    
+    </form>
+    </div> 

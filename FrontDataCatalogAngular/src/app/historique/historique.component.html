@@ -1,0 +1,92 @@
+<div id="open-position" class="section py-1 py-md-bg-light-dark">
+  <div class="container">
+    <!-- section header -->
+    <header class="text-left mx-auto mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h3 fw-bold"><span class="fw-light"></span> History</h2>
+        <div col-md-1 text-left>
+          <a class="btn btn-primary btn-sm" routerLink="/add_history">
+            <i class="bi bi-plus"></i> Add History
+          </a>
+        </div>
+      </div>
+      <hr class="my-4 mx-auto bg-warning border-warning">
+    </header>
+   
+      
+    <div class="row justify-content-center">
+      <div class="col-20">
+        <div class="head-schedule bg-primary shadow-md text-light">
+          <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+          <!--  <div class="col-lg-3">
+              <strong>Technique Data Name</strong>
+            </div>-->
+            <div class="col-lg-3">
+              <strong>Type Operation</strong>
+            </div>
+            <div class="col-md">
+              <strong>Date Operation</strong>
+            </div>
+            <div class="col-md">
+              <strong>User Matricule </strong>
+            </div>
+            <div class="col-md">
+              <strong>Details</strong>
+            </div>
+            <div class="col-md">
+              <strong>Options</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule bg-body shadow-md mb-5">
+          <ng-container *ngFor="let historique of historiques">
+            <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+             <!-- <div class="col-md">
+                {{ historique.typeOperation }}
+              </div>-->
+              <div class="col-md">
+                {{ historique.typeOperation }}
+              </div>
+              <div class="col-md">
+                <div>{{ historique.dateOperation | date: 'yyyy-MM-dd' }}</div>
+                <div>{{ historique.dateOperation | date: 'HH:mm:ss' }}</div>
+              </div>
+              <div class="col-md">
+                {{ historique.matriculeUtilisateur }}
+              </div>
+              <div class="col-md">
+                {{ historique.details }}
+              </div>
+              <div class="col-md">
+              
+                <span class="me-2">
+                  <a [routerLink]="'/edit-history/' + historique.idHistorique" title="Edit Item">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                </span>
+                
+                <span class="me-2">
+                  <a routerLink="['/details-history', historique.idHistorique]" title="Show Item">
+                    <i class="bi bi-eye text-success"></i> <!-- Show icon -->
+                  </a>
+                </span>
+                
+                <span>
+                  <a (click)="DeleteHistory(historique.idHistorique)"  >
+                    <i class="bi bi-trash text-danger"></i>
+                  </a>
+                </span>
+                
+                
+                
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End open position -->

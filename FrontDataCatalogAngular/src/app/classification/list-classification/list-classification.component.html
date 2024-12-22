@@ -1,0 +1,73 @@
+
+
+
+       
+<h2>Classification-list </h2>
+
+
+    
+<button class="btn btn-info" (click)="CreateClassification()">Ajouter classification</button>
+<button class=" btn btn-info" routerLink="/home_decideur/les_Autorisations" routerLinkActive="active">List Autorisations</button>
+<button class=" btn btn-info" routerLink="/home_decideur/les_utilisateurAutorises" routerLinkActive="active">List UtilisateurAutorises</button>
+<div class="row">
+   
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Classfification table</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+
+<thead>
+    <tr >
+        <th>matriculeUtilisateur</th>
+        <th>etiquetteClassification</th>
+        <th>descriptionClassification</th>
+        <th>FichierPreuveClassification</th>
+        <th>DateClassification</th>
+        <th>Action</th>
+
+    </tr>
+
+</thead>
+<tbody>
+    
+    <tr *ngFor="let classification of classifications">
+        <td>{{classification.matriculeUtilisateur}}</td>
+    <td>{{classification.etiquetteClassification}}</td>
+    <td>{{classification.descriptionClassification}}</td>
+    <td>
+        <img src="assets/{{classification.fichierPreuveClassification }}" alt="Ma image" 
+             style="width: 150px; height: 150px;">
+    </td>
+    <td>{{ classification.dateClassification }}</td>
+
+    
+     
+
+    
+    <td>
+     
+          
+               
+           
+      
+        
+       <button (click)="openDetailsPopup(classification.idClassification)" class="btn btn-info">Voir Détails</button>
+       <button (click)="openDonneParentClassificationId(classification.idClassification)" class="btn btn-info">desaffecter</button>
+       <button class="btn btn-info" (click)="ClassificationNullDialog(classification.idClassification)">affecter utilisateur</button>
+       
+        <button (click)="update_Classification(classification.idClassification)" class="btn btn-info">Update</button>
+        <button (click)=" delete_Classification(classification.idClassification)"class="btn btn-info">Delete</button>
+        <button (click)=" telecharger('classification.fichierPreuveClassification')"class="btn btn-info">telecharger</button>
+    </td>
+</tr>
+
+
+</tbody>
+
+
+
+
+</table>

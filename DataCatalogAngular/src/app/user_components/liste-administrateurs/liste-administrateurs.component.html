@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-dark bg-primary">
+                        <li class="breadcrumb-item"><a routerLink="/DashboardAdmin/GestionDesUtilisateurs"
+                                class="text-secondary">Dashboard
+                                DataGuard</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Administrateurs</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Main Content-->
+
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7s ps-2">
+                                    Consulter</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Id</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Nom</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Prénom</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Identifiant</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Mot de passe</th>
+
+                                <th class="text-secondary opacity-7"></th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr *ngFor="let utilisateur of listeAdministrateurs">
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <a href="#">
+                                                <img src="../assets/images/icone_personne.png"
+                                                    class="avatar avatar-sm me-3" alt="user1">
+                                            </a>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm" style="color: rgb(190, 73, 73);">Administrateur
+                                            </h6>
+                                            <p class="text-xs font-weight-bold mb-0">{{utilisateur.emailUtilisateur}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{utilisateur.idUtilisateur}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{utilisateur.nomUtilisateur}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{utilisateur.prenomUtilisateur}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{utilisateur.identifiantUtilisateur}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{utilisateur.motDePasseUtil}}</p>
+                                </td>
+
+                                <td class="align-middle">
+                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                        data-toggle="tooltip" data-original-title="Edit user">
+                                        Modifier
+                                    </a>
+                                </td>
+                                <td class="align-middle">
+                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                        data-toggle="tooltip" data-original-title="Edit user"
+                                        (click)="SupprimerUtilisateur(utilisateur.idUtilisateur)">
+                                        Supprimer
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- Fin Main Content-->
+        </div>
+    </div>
+</div>

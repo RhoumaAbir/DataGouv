@@ -1,0 +1,54 @@
+/* Style pour la carte contenant la liste des décideurs */
+.card {
+    border: none; /* Supprimer la bordure */
+    border-radius: 15px; /* Arrondir les coins */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+  }
+  
+  /* Style pour l'en-tête de la carte */
+  .card-header {
+    background-color: #f8f9fa; /* Couleur de fond */
+    border-bottom: none; /* Supprimer la bordure inférieure */
+  }
+  
+  /* Style pour le titre de la carte */
+  .card-header h6 {
+    color: #6c757d; /* Couleur du texte */
+  }
+  
+  /* Style pour chaque élément de la liste */
+  .list-group-item {
+    border: none; /* Supprimer la bordure */
+    border-radius: 10px; /* Arrondir les coins */
+    background-color: #f8f9fa; /* Couleur de fond */
+  }
+  
+  /* Style pour chaque élément de la liste au survol */
+  .list-group-item:hover {
+    background-color: #e9ecef; /* Couleur de fond au survol */
+  }
+  
+  /* Style pour les boutons 'Delete' et 'Edit' */
+  .btn-link {
+    text-decoration: none; /* Supprimer la décoration du texte */
+    font-size: 14px; /* Taille de police */
+    margin-right: 10px; /* Marge à droite */
+  }
+  
+  /* Style pour l'icône 'Delete' */
+  .btn-link .far.fa-trash-alt {
+    color: #dc3545; /* Couleur rouge */
+  }
+  
+  /* Style pour l'icône 'Edit' */
+  .btn-link .fas.fa-pencil-alt {
+    color: #212529; /* Couleur noire */
+  }
+  .bi::before {
+    display: inline-block;
+    content: "";
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='2rem' height='2rem' fill='currentColor' viewBox='0 0 512 512'><polyline points='112 268 256 412 400 268' style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/><line x1='256' y1='392' x2='256' y2='100' style='fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+  

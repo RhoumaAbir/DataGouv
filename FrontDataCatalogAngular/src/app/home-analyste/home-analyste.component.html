@@ -1,0 +1,83 @@
+
+<!--Skippy-->
+<a id="skippy" class="visually-hidden-focusable" href="#content">
+    <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+    </div>
+</a>
+
+<app-header-analyste></app-header-analyste>
+<!--Main start-->
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-12 pt-4 pt-lg-0 d-lg-none">
+            <!-- left nav -->
+
+
+        </div>
+
+        <!--left sidebar start-->
+        <div class="col-12 col-lg-3 col-xl-2" style="background-color: aliceblue; margin-right: auto; width: 300px;">
+            <!-- 0000000000000000000000000000000000000 -->
+            <div class="sidebar">
+
+                <div class="menu_content">
+                    <ul class="menu_items">
+                        <div class="menu_title" style="width: max-content; color: #5b2be0">Espace analyste</div>
+                        <!-- duplicate these li tag if you want to add or remove navlink only -->
+                        <!-- Start -->
+                        <li class="item">
+                            <a routerLink="/home_analyste" class="nav_link" style="width: 230px;">
+                                <span class="navlink_icon">
+                                    <i class="bx bxs-magic-wand"></i>
+                                </span>
+                                <span class="navlink">Mes statistiques</span>
+                            </a>
+                        </li>
+                        <!-- End -->
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- 0000000000000000000000000000000000000 -->
+        </div>
+        <!--Left sidebar end-->
+
+
+
+
+
+        <!--Content start-->
+        <main class="col-12 col-lg-9 col-xl-8 px-md-3 ps-lg-5 pe-lg-4 bn-content pb-5" style="margin-top: 5px;">
+            <div id="css" class="jump">
+
+                <router-outlet></router-outlet>
+
+            </div>
+
+
+        </main>
+        <!--Content end-->
+    </div>
+</div>
+<!--Main end-->
+
+
+
+<app-footer-analyste></app-footer-analyste>
+
+
+<!-- =========={ SCROLL TO TOP }==========  -->
+<a href="#page-top" class="p-3 border position-fixed end-1 bottom-1 z-index-10 back-top" title="Scroll To Top">
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <svg class="bi bi-arrow-up" width="1rem" height="1rem" viewBox="0 0 16 16" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd">
+        </path>
+        <path fill-rule="evenodd"
+            d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z"
+            clip-rule="evenodd"></path>
+    </svg>
+</a>

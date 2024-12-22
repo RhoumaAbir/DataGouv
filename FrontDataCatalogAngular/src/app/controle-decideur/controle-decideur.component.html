@@ -1,0 +1,140 @@
+<!-- controle-decideur.component.html -->
+<!-- <div class="col-md-11 mt-2">
+    <div class="card">
+      <div class="card-header pb-0 px-3">
+        <h2 class="mb-0">Controle Decideur</h2>
+      </div>
+      <div class="card-body pt-4 p-3">
+        <ul class="list-group">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+          <li *ngFor="let controle of contoledecideur" class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+            <div class="d-flex flex-column">
+              <h6 class="mb-3 text-sm">Référence de contrôle : {{ controle.referenceControle }}</h6>
+              <p>Date et heure du contrôle : {{ controle.dateHeureControle }}</p>
+              <p>Vulnérabilité : {{ controle.vulnerabilite }}</p>
+              <p>Rapport de scan : {{ controle.rapportScanControle }}</p>
+              <div class="ms-auto text-end">
+              <a class="btn btn-link text-danger text-gradient px-3 mb-0" (click)="deleteControle(controle.referenceControle)" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
+              <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+              <a class="btn btn-link text-dark px-3 mb-0"  routerLink="/home_decideur/viewdecideur" href="javascript:;">
+                <i class="far fa-eye text-dark me-2" aria-hidden="true"></i>View
+              </a>
+            </div>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>  -->
+  
+  
+
+  <main id="main" class="main">
+  <section class="section dashboard">
+    
+  
+    <div class="row">
+      <div class="d-grid d-lg-block my-3 my-lg-0 ms-0 ms-lg-4">
+      
+        <a class="btn btn-primary btn-sm float-lg-end" rel="noopener" routerLink="/home_decideur/ajout" href="javascript:void(0);">
+            Add
+            <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" width="1.2rem" height="1.2rem" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 4a1 1 0 0 1 1 1v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5a1 1 0 0 1 1-1z"/>
+            </svg>
+            
+        </a>
+        
+        <div class="row my-3">
+          <div class="ms-md-auto pe-md-4 d-flex align-items-center">
+            <div class="input-group col-4">
+              <span class="input-group-text text-body"
+                ><i class="fas fa-search" aria-hidden="true"></i
+              ></span>
+              <input
+                type="text"
+                [(ngModel)]="nomOrganisation"
+                class="form-control"
+                placeholder="Rechercher par..."
+              />
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+    
+      <div class="col-md-15 mt-2">
+        <div class="card">
+         
+        <div class="row">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+          <table  class="table table-hover text-center">
+            <thead>
+              <tr>
+            
+                <th scope="col">Reference</th>
+                <th scope="col">DateControle</th>
+                <th scope="col">Risque</th>
+                <th scope="col">Rapport</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let controle of contoledecideur 
+                | filter : nomOrganisation
+                | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+                let i = index ">
+                
+                <td>{{ controle.referenceControle }}</td>
+                <td>{{ controle.dateHeureControle | date: 'dd/MM/yyyy' }}</td>
+              
+                <td>
+                  <p class="text-xs font-weight-bold mb-0">
+                      <span [ngStyle]="{'color': controle.vulnerabilite === 'FAIBLE' ? 'green' : controle.vulnerabilite === 'MOYENNE' ? 'orange' : 'red'}">
+                          {{ controle.vulnerabilite }}
+                      </span>
+                  </p>
+              </td>
+              
+                <td>{{ controle.rapportScanControle }}</td>
+                <td class="ms-auto text-end">
+                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" (click)="deleteControle(controle.referenceControle)" href="javascript:;"><i class="far fa-trash-alt me-2"></i><span style="color: red;">Delete</span></a>
+                  <a class="btn btn-link text-dark px-3 mb-0" (click)="update(controle.referenceControle)" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i><span style="color: blue;">Update</span></a>
+                  <a class="btn btn-link text-dark px-3 mb-0" (click)="view(controle.referenceControle)" href="javascript:;"><i class="far fa-eye text-dark me-2" aria-hidden="true"></i><span style="color: green;">View</span></a>
+                 
+                </td>
+              
+              </tr>
+              
+              
+            </tbody>
+          </table>
+  
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- pagination-->
+  <div class="pagination-container d-flex justify-content-start">
+    <pagination-controls
+      previousLabel="Previous"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+      class="mat-paginator my-custom-pagination"
+      style="color: black"
+    ></pagination-controls>
+  </div>
+                <button
+                  class="btn mt-2"
+                  style="color: #008000"
+                  (click)="exportToExcel()">
+                  <i class="fas fa-file-excel"></i> Télécharger l'Excel
+                </button>
+  </main>

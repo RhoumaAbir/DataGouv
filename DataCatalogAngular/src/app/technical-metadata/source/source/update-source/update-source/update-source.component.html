@@ -1,0 +1,44 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update collection </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "nomSource"
+                [(ngModel)] = "source.nomSource" name = "nomSource">
+        </div>
+        <div class="form-group">
+            <label> FournisseurSource</label>
+            <input type="text" class ="form-control" id = "fournisseurSource"
+                [(ngModel)] = " source.fournisseurSource " name = "fournisseurSource">
+        </div>
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "commmentaireSource"
+                [(ngModel)] = "source.commmentaireSource" name = "commmentaireSource">
+        </div>
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "path"
+                [(ngModel)] = "source.path" name = "path">
+        </div>
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "userName"
+                [(ngModel)] = "source.userName" name = "userName">
+        </div>
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "motDePasee"
+                [(ngModel)] = "source.motDePasee" name = "motDePasee">
+        </div>
+        <div class="form-group">
+            <label> nomSource</label>
+            <input type="text" class ="form-control" id = "idCollection"
+                [(ngModel)] = "source.collection.idCollection" name = "idCollection">
+        </div>
+      
+        <button class = "btn btn-success" type ="submit">update</button>
+    
+    </form>
+    </div> 

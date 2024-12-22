@@ -1,0 +1,38 @@
+
+<p>update-autorisation works!</p>
+
+<form  (ngSubmit)="onSubmit()" >
+    
+    <div class="form-group">
+        <label>dateAutorisation</label>
+        <input type="datetime-local" class="form-control" placeholder="dateAutorisation" id="dateAutorisation" 
+        [(ngModel)]="autorisation.dateAutorisation" name="dateAutorisation">
+    </div>
+    <div class="form-group">
+        <label>dateExpiration</label>
+        <input type="datetime-local" class="form-control" placeholder="dateExpiration" id="dateExpiration" 
+        [(ngModel)]="autorisation.dateExpiration" name="dateExpiration">
+    </div>
+    
+    <div class="form-group">
+        <label for="typePrivilege">Type de privilège</label>
+        <select class="form-control" id="typePrivilege" [(ngModel)]="autorisation.typePrivilege" name="typePrivilege">
+            <option value="CONSULTATION">CONSULTATION</option>
+            <option value="MODIFICATION">MODIFICATION</option>
+            <option value="SUPPRESSION">SUPPRESSION</option>
+            <!-- Ajoutez d'autres options au besoin -->
+        </select>
+    </div>
+    
+   
+   
+    <button class="btn btn-success" type="submit">submit</button>
+    
+    
+ 
+    
+   
+   
+
+</form>
+

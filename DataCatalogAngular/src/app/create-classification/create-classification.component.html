@@ -1,0 +1,93 @@
+<p>create-Classification</p>
+
+<form (ngSubmit)="onSubmit()" #classificationForm="ngForm">
+  <div class="form-group">
+    <label>matriculeUtilisateur</label>
+    <input type="text" class="form-control" placeholder="matriculeUtilisateur" id="matriculeUtilisateur"
+           [(ngModel)]="classification.matriculeUtilisateur" name="matriculeUtilisateur" required>
+    <!-- Validation message -->
+    <div *ngIf="classificationForm.controls['matriculeUtilisateur'].errors?.['required'] && (classificationForm.controls['matriculeUtilisateur'].dirty || classificationForm.controls['matriculeUtilisateur'].touched)">
+      <span class="text-danger">Ce champ est requis.</span>
+  </div>
+  
+  <!-- Répétez le même modèle pour les autres champs -->
+  
+</div>
+
+
+<div class="form-group">
+  <label for="fichierPreuveClassification">Fichier Preuve Classification</label>
+  <input type="file" class="form-control" 
+         name="fichierPreuveClassification" 
+         id="fichierPreuveClassification" 
+         (change)="onUploadFiles($event)" 
+         multiple 
+         [(ngModel)]="classification.fichierPreuveClassification" 
+         required>
+  <!-- Validation message -->
+  <div *ngIf="classificationForm.controls['fichierPreuveClassification'].invalid && (classificationForm.controls['fichierPreuveClassification'].dirty || classificationForm.controls['fichierPreuveClassification'].touched)">
+      <span class="text-danger">Ce champ est requis.</span>
+  </div>
+</div>
+
+
+  <div class="form-group">
+      <label>etiquetteClassification</label>
+      <input type="text" class="form-control" placeholder="etiquetteClassification" id="etiquetteClassification"
+             [(ngModel)]="classification.etiquetteClassification" name="etiquetteClassification" required>
+      <!-- Validation message -->
+      <div *ngIf="classificationForm.controls['etiquetteClassification'].invalid && (classificationForm.controls['etiquetteClassification'].dirty || classificationForm.controls['etiquetteClassification'].touched)">
+          <span class="text-danger">Ce champ est requis.</span>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label>descriptionClassification</label>
+      <input type="text" class="form-control" placeholder="descriptionClassification"
+             id="descriptionClassification" [(ngModel)]="classification.descriptionClassification"
+             name="descriptionClassification" required   minlength="5">
+      <!-- Validation message -->
+      <div *ngIf="classificationForm.controls['descriptionClassification'].invalid && (classificationForm.controls['descriptionClassification'].dirty || classificationForm.controls['descriptionClassification'].touched)">
+        <div *ngIf="descriptionClassification.errors?.['minlength']">
+          <span class="text-danger">La description doit contenir au moins 5 caractères.</span>
+      </div>
+      
+      
+          <span class="text-danger">La description doit contenir au moins 30 caractères.</span>
+        </div>
+
+      </div>
+      
+  
+
+  <div class="form-group">
+      <label for="dateClassification">Date et heure de classification</label>
+      <input type="datetime-local" class="form-control" id="dateClassification"
+             [(ngModel)]="classification.dateClassification" name="dateClassification" required>
+      <!-- Validation message -->
+      <div *ngIf="classificationForm.controls['dateClassification'].invalid && (classificationForm.controls['dateClassification'].dirty || classificationForm.controls['dateClassification'].touched)">
+          <span class="text-danger">Ce champ est requis.</span>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="donneParentrows">donneParent</label>
+    <input type="checkbox" id="creationCheckbox" [(ngModel)]="creationEnabledDonneeParent" name="creationCheckbox" (change)="DonneParentValue()"> Activer la création
+    <select class="form-control" id="donneParen"  [(ngModel)]="donneParen" name="donneParen" [disabled]="!creationEnabledDonneeParent">
+        <option *ngFor="let dn of donneparents" [value]="dn.idDonneeParent">{{ dn.commentaire }}</option>
+        <!-- Ajoutez d'autres options au besoin -->
+    </select>
+</div>
+<div class="form-group">
+  <label for="donneFilsrows">donneFils</label>
+  <input type="checkbox" id="creationCheckbox" [(ngModel)]="creationEnabledDonneFils" name="creationCheckbox" (change)="DonneFilsValue()"> Activer la création
+  <select class="form-control" id="donnefil"  [(ngModel)]="donnefil" name="donnefil" [disabled]="!creationEnabledDonneFils">
+      <option *ngFor="let dn of donnefils" [value]="dn.idDonneeFils">{{ dn.idDonneeFils}}</option>
+      <!-- Ajoutez d'autres options au besoin -->
+  </select>
+</div>
+
+
+  <button class="btn btn-success" type="submit" [disabled]="classificationForm.invalid">Submit</button>
+  
+</form>

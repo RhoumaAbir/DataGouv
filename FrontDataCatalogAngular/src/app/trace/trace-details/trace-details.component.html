@@ -1,0 +1,68 @@
+<div id="open-position" class="section py-1 py-md-bg-light-dark">
+  <div class="container">
+    <!-- section header -->
+    <div class="d-flex justify-content-between align-items-center ms-7">
+      <a routerLink="/home_decideur/traces_des_donnees" class="h5 text-decoration-none text-dark">
+        <i class="fas fa-arrow-circle-left me-2"></i> Back to Home
+      </a>
+    </div>
+    
+    <header class="text-left mx-auto mb-3">
+      <div class="d-flex justify-content-between align-items-center ms-7">
+        <h2 class="h3 fw-bold"><span class="fw-light"></span> Trace</h2>
+      </div>
+     
+      <hr class="my-4 mx-auto bg-warning border-warning">
+    </header>
+    
+    <div class="row justify-content-center">
+      <div class="col-20">
+        <div class="head-schedule bg-primary shadow-md text-light">
+          <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+            <div class="col-lg-3">
+              <strong>Type Operation</strong>
+            </div>
+            <div class="col-md">
+              <strong>User Matricule </strong>
+            </div>
+            <div class="col-md">
+              <strong>Fonction</strong>
+            </div>
+            <div class="col-md">
+              <strong>Details</strong>
+            </div>
+            <div class="col-md">
+              <strong>Date Operation</strong>
+            </div>
+          </div>
+          <div class="schedule bg-body shadow-md mb-5">
+            <ng-container *ngFor="let trace of traces">
+              <div class="row g-0 align-items-center text-center text-dark text-md-start p-4 border-bottom">
+                <!-- Use *ngFor to iterate over traces and display each row -->
+                <!--<div class="row g-0 align-items-center text-center text-md-start p-4" *ngFor="let trace of traces">-->
+                <div class="col-lg-3">
+                  {{ trace.typeOperation }}
+                </div>
+                <div class="col-md">
+                  {{ user.matriculeUtilisateur }}
+                </div>
+                <div class="col-md">
+                  {{ user.fonction }}
+                </div>
+                <div class="col-md">
+                  {{ trace.details }}
+                </div>
+                <div class="col-md">
+                  {{ trace.dateOperation | date: 'yyyy-MM-dd HH:mm:ss' }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+     
+
+    </div>
+  </div>
+</div>
+<!-- End open position -->

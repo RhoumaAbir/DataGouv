@@ -1,0 +1,42 @@
+<header class="text-left mx-auto mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2 class="h3 fw-bold"><span class="fw-light"></span>  Trace List</h2>
+     
+    </div>
+    <hr class="my-4 mx-auto bg-warning border-warning">
+  </header>
+     <!-- operational-metadata.component.html -->
+
+<div id="service" class="section pt-7 pt-lg-1 pb-9 bg-light-dark">
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div *ngFor="let donnee of techniqueParents" class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <!-- service block -->
+        <div class="five-service hover-box-up text-center mb-7">
+          <div class="service-icon text-white border">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                <path stroke="currentColor" d="M221.09,64A157.09,157.09,0,1,0,378.18,221.09,157.1,157.1,0,0,0,221.09,64Z" style="fill:none;stroke-miterlimit:10;stroke-width:32px"/>
+                <line stroke="currentColor" x1="338.29" y1="338.29" x2="448" y2="448" style="fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"/>
+              </svg>
+            </span>
+          </div>
+          <div class="service-content bg-body pt-5 pb-4 px-4 shadow-sm rounded-3" (click)="onClick(donnee.idDonneeParent)">
+            <h3 class="h5 mt-3">{{ donnee.nomTechniqueParent }}</h3>
+
+
+        
+            <a [routerLink]="'/trace-details/' + donnee.idDonneeParent"  class="read-more bg-body" title="Read More">
+              <svg class="bi bi-pencil" width="2rem" height="2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div><!-- end service block -->
+      </div>
+    </div><!-- end row -->
+  </div>
+</div><!-- End Service -->
+

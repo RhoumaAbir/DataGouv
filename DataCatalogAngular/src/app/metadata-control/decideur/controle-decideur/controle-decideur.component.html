@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-12">
+        
+        <div class="card mb-4">
+            <div class="card mb-4">
+                <a class="btn btn-link text-dark px-3 mb-0" [routerLink]="['/DashboardAdmin/GestionDuControleDesMetadonnees']" style="position: absolute; left: 0;">
+                    <i class="fas fa-chevron-circle-left text-primary" style="font-size: 24px;"></i>
+               </a>
+           
+                
+            </div>
+            
+            <div class="card-header pb-0">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-dark bg-primary">
+                        <li class="breadcrumb-item"><a routerLink="/DashboardAdmin/GestionDesUtilisateurs"
+                                class="text-secondary">Dashboard
+                                DataGuard</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">ContoleDecideur</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Main Content-->
+
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="row my-3">
+                    <div class="ms-md-auto pe-md-4 d-flex align-items-center">
+                      <div class="input-group col-4">
+                        <span class="input-group-text text-body"
+                          ><i class="fas fa-search" aria-hidden="true"></i
+                        ></span>
+                        <input
+                          type="text"
+                          [(ngModel)]="searchText"
+                          class="form-control"
+                          placeholder="Rechercher par..."
+                        />
+                      </div>
+                  </div>
+                </div>
+                <div class="table-responsive p-0">
+                    
+                    <table class="table align-items-center mb-0">
+                        
+                        <thead>
+                            
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Reference</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Comforme</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Date</th>
+                                <th
+                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">CauseProbleme</th>
+                               
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+
+                            <tr  *ngFor="let controle of contoledecideur 
+                            | filter : searchText
+                            | paginate
+                            : {
+                                itemsPerPage: tableSize,
+                                currentPage: page,
+                                totalItems: count
+                                };
+                                let i = index ">
+                                
+                                
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{ controle.referenceControle}}</p>
+                                </td>
+                                
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{controle.dateHeureControle}}</p>
+                                </td>
+                                
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">
+                                        <span [ngStyle]="{'color': controle.vulnerabilite === 'FAIBLE' ? 'green' : controle.vulnerabilite === 'MOYENNE' ? 'orange' : 'red'}">
+                                            {{ controle.vulnerabilite }}
+                                        </span>
+                                    </p>
+                                </td>
+                                
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{ controle.rapportScanControle }}</p>
+                                </td>
+
+                            
+                                <td class="align-middle">
+                                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" (click)="deleteControle(controle.referenceControle)" href="javascript:;"><i class="far fa-trash-alt me-2"></i><span style="color: red;">Delete</span></a>
+
+                                </td> 
+
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+ <!-- pagination-->
+ <div class="pagination-container d-flex justify-content-start">
+    <pagination-controls
+      previousLabel="Previous"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+      class="mat-paginator my-custom-pagination"
+      style="color: black"
+    ></pagination-controls>
+  </div>
+
+            <!-- Fin Main Content-->
+        </div>
+    </div>
+</div>

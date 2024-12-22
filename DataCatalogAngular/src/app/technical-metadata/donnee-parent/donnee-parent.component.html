@@ -1,0 +1,55 @@
+
+<div class="row">
+    
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                <div class="nav-wrapper position-relative end-0">
+                  <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                 
+                    <li class="nav-item">
+                      <a class="nav-link mb-0 px-0 py-1 btn btn-link text-danger  active d-flex align-items-center justify-content-center "routerLink="donneeFils" routerLinkActive="active" data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                        <i class="fas fa-plus-circle"></i>
+                        <span class="ms-2">donnee Fils</span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+<div class="comments-container">
+    <h1>Liste des donnees Parents</h1>
+
+    <ul id="comments-list" class="comments-list" *ngFor = "let donneeParent of donneeParents">
+        <li>
+            <div class="comment-main-level">
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="https://cdn.oshara.ca/wpsite/2023/07/27115137/METADONNEES-compressed.jpg" alt=""></div>
+                <!-- Contenedor del Comentario -->
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h6 class="comment-name by-author"><a href="http://creaticode.com/blog"><span class="text-dark ms-sm-2 font-weight-bold">NomTechniqueParent :</span>{{ donneeParent.nomTechniqueParent }}</a></h6>
+                     
+                    </div>
+                    <div class="comment-content">
+                        <span class="mb-2 text-xs">typeDonnee: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.typeDonnee }}</span></span>
+                       <br>
+                        <span class="text-xs">nbrLigne: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.nbrLigne }}</span></span>
+                       <br>
+                        <span class="mb-2 text-xs">commentaire: <span class="text-dark font-weight-bold ms-sm-2">{{ donneeParent.commentaire }}</span></span>
+                        <br>
+                        <span class="mb-2 text-xs">TailleEnOctets: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.tailleEnOctets }}</span></span>
+                       <br>
+                        <span class="text-xs">NombreDonneeFils: <span class="text-dark ms-sm-2 font-weight-bold">{{ donneeParent.nombreDonneeFils }}</span></span>
+                        <br>
+                        <span class="text-xs " style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{  donneeParent.sourceList ? 'affecté' : 'N/A'}}</span></span>
+                    </div>
+                </div>
+            </div>
+         
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</div>

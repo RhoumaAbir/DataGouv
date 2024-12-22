@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+     
+          </div>
+        <div class="card-body p-3">
+            <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                <div class="nav-wrapper position-relative end-0">
+                  <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link mb-0 px-0 py-1 btn btn-link text-danger  active d-flex align-items-center justify-content-center "routerLink="source" routerLinkActive="active" data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                        <i class="fas fa-plus-circle"></i>
+                        <span class="ms-2">source</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link mb-0 px-0 py-1 btn btn-link text-danger  active d-flex align-items-center justify-content-center "routerLink="donneParent" routerLinkActive="active" data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                        <i class="fas fa-plus-circle"></i>
+                        <span class="ms-2">donnee Parent</span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+         
+
+
+
+
+       
+            <div class="container-fluid py-4">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header pb-0">
+                         <h6>Ajouter les Collections</h6>
+                        <div class="d-flex align-items-center">
+<form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+ 
+    <div class="mb-3">
+        <label  class="form-label">Nom Collection</label>
+        <input type="text" class="form-control" formControlName="nomCollection" placeholder="Type here...">
+        <div class="alert " *ngIf="collectionForm.get('nomCollection')?.invalid && (collectionForm.get('nomCollection')?.touched || collectionForm.get('nomCollection')?.dirty)">
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['required']">Nom source is required!</div>
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['minlength']">Nom source must be at least 3 characters long!</div>
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['pattern']">Nom source must contain only alphabetic characters!</div>
+        </div>
+    </div>
+
+   
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" [disabled]="collectionForm.invalid">
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+                </div>
+              
+
+                <br>
+                <div class="container-fluid py-4">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="card mb-4">
+                          <div class="card-header pb-0">
+                <h6>List de collection</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+<table class="table align-items-center mb-0">
+    <thead>
+        <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> nom </th>
+            <th class="text-center text-uppercase text-xxs font-weight-bolder opacity-7"> Affectation</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let collection of collections" >
+            <td> {{ collection.idCollection }} </td>
+            <td> {{ collection.nomCollection }} </td>
+            <td>{{ collection.organisation ? 'affecté' : 'N/A' }}</td>
+            <td>
+                <button  class="btn btn-dark btn-sm  mb-3" (click) = "updateCollection(collection.idCollection)" > Update</button>
+                <button (click) = "deleteCollection(collection.idCollection)" class = "btn btn-danger btn-sm  mb-3 " style="margin-left: 10px"> Delete</button>
+                <button (click) = "deleteAffectation(collection.idCollection ,collection.organisation.idOrganisation)" class = "btn btn-danger btn-sm  mb-3" style="margin-left: 10px"> deleteAffecter</button>
+                </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

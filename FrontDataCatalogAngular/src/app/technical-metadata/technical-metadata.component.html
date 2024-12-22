@@ -1,0 +1,252 @@
+
+<header class="text-left mx-auto mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2 class="h3 fw-bold" style="color: rgb(81, 59, 244);"><span class="fw-light"></span> Voir Toutes Les Donnees  et Ajouter</h2>
+      <div col-md-1 text-left>
+        <a class="btn btn-primary btn-sm" (click)="voir()">
+          <i class="bi bi-plus"></i>  Donnees Parents
+        </a>
+      </div>
+    </div>
+    <hr class="my-4 mx-auto bg-warning border-warning">
+  </header>
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+
+         
+                      <div class="card-header pb-0">
+                         <h6>Ajouter les Collections</h6>
+                        <div class="d-flex align-items-center">
+<form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+ 
+    <div class="mb-3">
+        <label  class="form-label">Nom Collection</label>
+        <input type="text" class="form-control" formControlName="nomCollection" placeholder="Type here...">
+        <div class="alert " *ngIf="collectionForm.get('nomCollection')?.invalid && (collectionForm.get('nomCollection')?.touched || collectionForm.get('nomCollection')?.dirty)">
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['required']">Nom source is required!</div>
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['minlength']">Nom source must be at least 3 characters long!</div>
+            <div *ngIf="collectionForm.get('nomCollection')?.errors?.['pattern']">Nom source must contain only alphabetic characters!</div>
+        </div>
+    </div>
+
+   
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" [disabled]="collectionForm.invalid">
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+                
+              
+
+                <br>
+             <br>
+                      <div class="col-12">
+                        <div class="card mb-4">
+                            <br>
+                            <div class="name text-decoration-none text-center mb-4">
+                                <h2 class="card-header  pb-0">liste de la  COLLECTION</h2>
+                                </div>
+                     
+    <div class="row justify-content-center">
+        <div class="col-20">
+          <div class="head-schedule bg-primary shadow-md text-light">
+            <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+            <!--  <div class="col-lg-3">
+                <strong>Technique Data Name</strong>
+              </div>-->
+              <div class="col-lg-3">
+                <strong>Nom collection</strong>
+              </div>
+              <div class="col-md">
+                <strong> affectation</strong>
+              </div>
+              <div class="col-md">
+                <strong>action </strong>
+              </div>
+            
+          </div>
+  
+          <div class="schedule bg-body shadow-md mb-5" style="color: black;">
+            <ng-container *ngFor = "let collection of collections" >
+              <div class="row g-0 align-items-center text-center text-md-start p-4 border-bottom">
+                <div class="col-md">
+                {{ collection.nomCollection }}
+                </div>
+                <div class="col-md">
+                    {{ collection.organisation ? 'affecté' : 'N/A' }}
+                </div>
+               
+                
+                <div class="col-md">
+                
+                  <span class="me-2" style="color: black;">
+                    <a (click)="updateCollection(collection.idCollection)"  title="Edit Item">
+                      <i class="bi bi-pencil"></i>
+                    </a>
+                  </span>
+                  <span>
+                    <a (click)="deleteCollection(collection.idCollection)"   >
+                      <i class="bi bi-trash text-danger"></i>
+                    </a>
+                  </span>
+                  <span class="me-2">
+                    <a (click) = "affecterCollection(collection.idCollection )" title="Show Item">
+                        <i class="bi bi-person-check-fill"></i> <!-- Icone d'affectation -->
+                    </a>
+                  </span>
+                  
+                  <span>
+                    <a (click) = "deleteAffectation(collection.idCollection ,collection.organisation.idOrganisation)"   >
+                      <i class="bi bi-trash "></i>
+                    </a>
+                  </span>
+                  
+                  
+                  
+                </div>
+              </div>
+            </ng-container>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+</div>
+
+
+
+
+
+<br>
+
+
+
+   
+<div id="block-two" class="section py-6 py-md-7 bg-body border-top">
+   
+            <div class="name text-decoration-none text-center mb-4">
+                <h2 class="card-header  pb-0">Ajouter Source</h2>
+                </div>
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                <i class="fas fa-plus-circle"></i>
+              
+            </div>
+       
+  
+      <div class="card-body pt-4 p-3">
+       
+          
+<form [formGroup]="sourceForm" (ngSubmit)="envoyer()">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nom source</label>
+  <input type="text" class="form-control" formControlName="nomSource">
+  <div class="alert " *ngIf="sourceForm.get('nomSource')?.invalid && (sourceForm.get('nomSource')?.touched || sourceForm.get('nomSource')?.dirty)">
+      <div *ngIf="sourceForm.get('nomSource')?.errors?.['required']">Nom source is required!</div>
+      <div *ngIf="sourceForm.get('nomSource')?.errors?.['minlength']">Nom source must be at least 3 characters long!</div>
+      <div *ngIf="sourceForm.get('nomSource')?.errors?.['pattern']">Nom source must contain only alphabetic characters!</div>
+  </div>
+</div>
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fournisseur Source</label>
+          <input type="text" class="form-control" formControlName="fournisseurSource">
+          <div class="alert " *ngIf="sourceForm.get('fournisseurSource')?.invalid && (sourceForm.get('fournisseurSource')?.touched || sourceForm.get('fournisseurSource')?.dirty)">
+              <div *ngIf="sourceForm.get('fournisseurSource')?.errors?.['required']">Fournisseur is required!</div>
+              <div *ngIf="sourceForm.get('fournisseurSource')?.errors?.['minlength']">Fournisseur must be at least 3 characters long!</div>
+              <div *ngIf="sourceForm.get('fournisseurSource')?.errors?.['pattern']">Fournisseur must contain only alphanumeric characters!</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">commmentaire Source</label>
+          <input type="text" class="form-control" formControlName="commmentaireSource">
+          <div class="alert " *ngIf="sourceForm.get('commmentaireSource')?.invalid && (sourceForm.get('commmentaireSource')?.touched || sourceForm.get('commmentaireSource')?.dirty)">
+              <div *ngIf="sourceForm.get('commmentaireSource')?.errors?.['required']">commmentaire is required!</div>
+          </div>
+      </div>
+      
+      
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Nom user</label>
+          <input type="text" class="form-control" formControlName="userName">
+          <div class="alert " *ngIf="sourceForm.get('userName')?.invalid && (sourceForm.get('userName')?.touched || sourceForm.get('userName')?.dirty)">
+              <div *ngIf="sourceForm.get('userName')?.errors?.['required']">Nom user is required!</div>
+              <div *ngIf="sourceForm.get('userName')?.errors?.['minlength']">Nom user must be at least 3 characters long!</div>
+              <div *ngIf="sourceForm.get('userName')?.errors?.['pattern']">Nom user must contain only alphanumeric characters!</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Mot de Passe</label>
+          <input type="password" class="form-control" formControlName="motDePasse">
+          <div class="alert " *ngIf="sourceForm.get('motDePasse')?.invalid && (sourceForm.get('motDePasse')?.touched || sourceForm.get('motDePasse')?.dirty)">
+              <div *ngIf="sourceForm.get('motDePasse')?.errors?.['required']">Mot de Passe is required!</div>
+              <div *ngIf="sourceForm.get('motDePasse')?.errors?.['pattern']">Mot de Passe must contain at least one uppercase letter, one lowercase letter, one number, and one special character!</div>
+          </div>
+      </div>
+      <div class="mb-3">
+
+      <label for="exampleFormControlInput1" class="form-label">nom collection</label>
+      <select id="alerteAudit" name="alerteAudit" class="form-control" formControlName="idCollection" required>
+        <option value="" disabled selected>Choisissez une option</option>
+        <option *ngFor="let collection of collections" [value]="collection.idCollection">{{collection.nomCollection }}</option>
+      </select>
+      
+      </div>
+     
+      
+
+    
+     
+      <div class="mb-3">
+          <input type="submit" class="btn btn-primary" [disabled]="sourceForm.invalid">
+      </div>
+  </form>
+
+
+      
+
+
+
+          <h6 class="mb-0">Liste des Sources</h6>
+        </div>
+        <div class="card-body pt-4 p-3">
+         
+
+
+
+
+            <ul class="list-group"  *ngFor = "let source of sources" >
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                   
+                    <span class="mb-2 text-xs">Nom Source: <span class="text-dark font-weight-bold ms-sm-2">{{ source.nomSource }}</span></span>
+                    <span class="mb-2 text-xs">fournisseur: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.fournisseurSource }}</span></span>
+                    <span class="text-xs">commmentaire: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.commmentaireSource }}</span></span>
+                    <span class="mb-2 text-xs">user Name: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.userName }}</span></span>
+                    <span class="text-xs">mot De Pasee: <span class="text-dark ms-sm-2 font-weight-bold">{{ source.motDePasee }}</span></span>
+                    <span class="text-xs " style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{  source.collection ? 'affecté' : 'N/A'}}</span></span>
+                    <span class="text-xs " style="color: red;">Affectations: <span class="text-dark ms-sm-2 font-weight-bold">{{  source.donneeParentList ? 'affecté' : 'N/A'}}</span></span>
+
+                </div>
+                  <div class="ms-auto text-end">
+                   
+                 
+                </div>
+                </li>
+                
+              </ul>
+
+        </div>
+      
+
+
+
+

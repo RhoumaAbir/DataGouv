@@ -1,0 +1,34 @@
+<br><br><br><br><br><br><br><br>
+<p>update-utilisateur-autorise works!</p>
+<form  (ngSubmit)="onSubmit()" >
+    
+    <div class="form-group">
+        <label>matriculeUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="matriculeUtilisateurAutorise" id="matriculeUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.matriculeUtilisateurAutorise" name="matriculeUtilisateurAutorise">
+    </div>
+    
+    <div class="form-group">
+        <label>fonctionUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="fonctionUtilisateurAutorise" id="fonctionUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.fonctionUtilisateurAutorise" name="fonctionUtilisateurAutorise">
+    </div>
+    <div class="form-group">
+        <label>categorieUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="categorieUtilisateurAutorise" id="categorieUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.categorieUtilisateurAutorise" name="categorieUtilisateurAutorise">
+    </div>
+  
+   
+      
+          
+   
+   
+    <button class="btn btn-success" type="submit">submit</button>
+    
+ 
+    
+   
+   
+
+</form>

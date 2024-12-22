@@ -1,0 +1,41 @@
+<p>create-utilisateur-autorise works!</p>
+<form  (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+        <label>matriculeUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="matriculeUtilisateurAutorise" id="matriculeUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.matriculeUtilisateurAutorise" name="matriculeUtilisateurAutorise">
+    </div>
+    
+    <div class="form-group">
+        <label>fonctionUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="fonctionUtilisateurAutorise" id="fonctionUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.fonctionUtilisateurAutorise" name="fonctionUtilisateurAutorise">
+    </div>
+    <div class="form-group">
+        <label>categorieUtilisateurAutorise</label>
+        <input type="text" class="form-control" placeholder="categorieUtilisateurAutorise" id="categorieUtilisateurAutorise" 
+        [(ngModel)]="utilisateurAutorise.categorieUtilisateurAutorise" name="categorieUtilisateurAutorise">
+    </div>
+
+    <div class="form-group">
+        <label for="autorisationrows">Autorisation</label>
+        <input type="checkbox" id="creationCheckbox" [(ngModel)]="creationEnabled" name="creationCheckbox" (change)="AutorisationValue()"> Activer la création
+        <select class="form-control" id="autorisation"  [(ngModel)]="utilisateurAutorise.autorisation" name="autorisation" [disabled]="!creationEnabled">
+            <option *ngFor="let at of autorisations" [value]="at.idAutorisation"> {{ at.idAutorisation }} - {{ at.typePrivilege }}  </option>
+            <!-- Ajoutez d'autres options au besoin -->
+        </select>
+    </div>
+   <!-- Bouton pour fermer le dialogue -->
+
+
+<!-- Bouton pour soumettre le formulaire -->
+<button class="btn btn-success" type="submit">Submit</button><!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<button class="btn btn-success" type="submit" style="text-align: left;" (click)="closeDialog()">Fermer</button>
+-->
+    
+
+ 
+    
+   
+   
+
+</form>
